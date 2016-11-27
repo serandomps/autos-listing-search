@@ -1,0 +1,16 @@
+{
+    "name": "autos-listing-search",
+    "description": "autos-listing-search component",
+    "local": [],
+    "scripts": ["index.js"],
+    "styles": ["styles.css"],
+    "templates": ["template.html"],
+    "main": "index.js",
+    "dependencies": {
+        "serandomps/dust": "master",
+        "serandomps/serand": "master",
+        "serandomps/utils": "master",
+        "serandomps/vehicle-service": "master",
+        "serandomps/autos-listing": "master"
+    }
+}
