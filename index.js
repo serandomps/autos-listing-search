@@ -4,13 +4,9 @@ var utils = require('utils');
 var Vehicle = require('vehicle-service');
 var list = require('autos-listing');
 
-var user;
-
-dust.loadSource(dust.compile(require('./template'), 'autos-listing'));
-
 module.exports = function (sandbox, fn, options) {
     Vehicle.find({
-        query: options.query,
+        query: options,
         images: '288x162'
     }, function (err, vehicles) {
         if (err) {
@@ -18,19 +14,7 @@ module.exports = function (sandbox, fn, options) {
         }
         list(sandbox, fn, {
             vehicles: vehicles,
-            styles: options.styles
+            size: 4
         });
     });
 };
-
-serand.on('user', 'ready', function (usr) {
-    user = usr;
-});
-
-serand.on('user', 'logged in', function (usr) {
-    user = usr;
-});
-
-serand.on('user', 'logged out', function (usr) {
-    user = null;
-});
