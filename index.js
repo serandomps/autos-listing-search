@@ -2,7 +2,7 @@ var dust = require('dust')();
 var serand = require('serand');
 var utils = require('utils');
 var Vehicle = require('vehicles-service');
-var list = require('vehicles-listing');
+var list = require('vehicles-find');
 
 module.exports = function (sandbox, fn, options) {
     Vehicle.find({
