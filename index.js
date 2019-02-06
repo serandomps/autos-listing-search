@@ -27,7 +27,7 @@ module.exports = function (ctx, container, options, done) {
     });
     Vehicle.find({
         query: o,
-        images: '288x162'
+        resolution: '288x162'
     }, function (err, vehicles) {
         if (err) {
             return done(err);
