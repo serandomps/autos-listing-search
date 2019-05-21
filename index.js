@@ -1,13 +1,21 @@
 var Vehicle = require('vehicles-service');
 var list = require('vehicles-find');
 
-var numbers = ['price', 'manufacturedAt'];
+var formatters = {
+    price: function (val) {
+        return parseInt(val, 10) || null;
+    },
+    manufacturedAt: function (val) {
+        return new Date(val).toISOString();
+    }
+}
 
 var cast = function (field, val) {
-  if (numbers.indexOf(field) === -1) {
+  var formatter = formatters[field];
+  if (!formatter) {
       return val;
   }
-  return parseInt(val, 10) || null;
+  return formatter(val);
 };
 
 module.exports = function (ctx, container, options, done) {
